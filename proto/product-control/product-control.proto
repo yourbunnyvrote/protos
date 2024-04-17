@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package product_control;
+
+option go_package="emil.product-control.v1;pcv1";
+
+service Reservation {
+  rpc Reserve (ReserveRequest) returns (ReserveResponse);
+  rpc UnReserve (UnReserveRequest) returns (UnReserveResponse);
+}
+
+message ReserveRequest {
+  repeated int64 article = 1;
+}
+
+message ReserveResponse {
+  string error = 1;
+}
+
+message UnReserveRequest {
+  repeated int64 article = 1;
+}
+
+message UnReserveResponse {
+  string error = 1;
+}
